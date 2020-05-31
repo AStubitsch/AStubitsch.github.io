@@ -7,6 +7,23 @@ layout: default
 <p>My name is Adam Stubitsch. I am a student at DePaul University, completing my degree in Game Programming. As I continue to develop projects, 
 both in and out of school, I would like to able to document my processes and share some of my work. </p>
 <h2>Links</h2>
-<a href="https://www.linkedin.com/in/adam-stubitsch-97011691/">Linkedin</a><br>
-<a href="pdfs/Adam Stubitsch Resume.pdf">Resume</a><br>
+<a href="https://www.linkedin.com/in/adam-stubitsch-97011691/" target="_blank">Linkedin</a><br>
+<a href="pdfs/Adam Stubitsch Resume.pdf" target="_blank">Resume</a><br>
+<br>
+<pre>
+	<code>
+		// singleton
+		static GameController* ptrInstance;
+
+		// Access reference (all public methods will be static)
+		static GameController& Instance() 
+		{
+			if (!ptrInstance) 
+			{
+				ptrInstance = new GameController;
+			}
+			return *ptrInstance;
+		};
+	</code>
+</pre>
 </body>
