@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<body>
+
+<h1>Projects</h1>
+<p>Here you can preview snippets of some of my past coding projects, both from in and out of school. </p>
+
+<h2>Singletons</h2>
+<p>A singleton is a design pattern that allows a class to be accessible from anywhere. A singleton
+creates a single instance of a class, allowing its information to be accessible as long as the program
+is running.
+This is especially
+important when designing class structure in games. Some objects, such as 
+<pre>
+<code>
+// singleton
+static GameController* ptrInstance;
+
+// Access reference (all public methods will be static)
+static GameController& Instance() 
+{
+	if (!ptrInstance) 
+	{
+		ptrInstance = new GameController;
+	}
+	return *ptrInstance;
+};
+</code>
+</pre>
+
+<h2>Links</h2>
+<a href="https://www.linkedin.com/in/adam-stubitsch-97011691/" target="_blank">Linkedin</a><br>
+<a href="pdfs/Adam Stubitsch Resume.pdf" target="_blank">Resume</a><br>
+<br>
+
+
+</body>
