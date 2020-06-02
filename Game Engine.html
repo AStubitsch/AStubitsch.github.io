@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<body>
+
+<h1>Game Engine</h1>
+
+<p>For almost six months, I was tasked with creating a functioning 3D game engine.</p>
+
+<h2>Collision</h2>
+
+<p>The collision system took several weeks to fully implement. </p>
+
+<pre>
+<code>
+bool MathTools​::Intersect(const CollisionVolumeBSphere & A, const CollisionVolumeBSphere & B) 
+{
+	// if the distance between the two spheres' centers is less than the sum of ther radii, they intersect
+	return (
+		sqrt(pow(B.GetCenter().X() - A.GetCenter().X(), 2) + 
+		pow(B.GetCenter().Y() - A.GetCenter().Y(), 2) + 
+		pow(B.GetCenter().Z() - A.GetCenter().Z(), 2)) 
+		< A.GetRadius() + B.GetRadius()
+	);
+}
+</code>
+</pre>
+
+<p>Click <a href="index.html">here</a> to go back to the main page.</p>
+
+<h2>Other Links</h2>
+<a href="https://www.linkedin.com/in/adam-stubitsch-97011691/" target="_blank">Linkedin</a><br>
+<a href="pdfs/Adam Stubitsch Resume.pdf" target="_blank">Resume</a><br>
+<br>
+
+</body>
