@@ -66,38 +66,37 @@ bool MathTools​::Intersect(const CollisionVolumeBSphere & A, const CollisionVo
     <p></p>
 
 <pre>
-<code>
-void SingleKeyEventManager::ProcessKeyEvent() 
-{
-	// key press events
-	if (Keyboard::GetKeyState(key)) 
+    <code>
+void SingleKeyEventManager::ProcessKeyEvent() {
+    // key press events
+    if (Keyboard::GetKeyState(key)) 
     {
-		// execute if key was not down on the last frame
-		if (keyDown == false) 
+        // execute if key was not down on the last frame
+        if (keyDown == false) 
         {
-			keyDown = true;
-			for (auto const& x : keyMap[Inputable::EVENT_TYPE::KEY_PRESS]) 
+            keyDown = true;
+            for (auto const& x : keyMap[Inputable::EVENT_TYPE::KEY_PRESS]) 
             {
-				InputableAttorney::GameLoop::KeyPressed(x, key);
-			}
-		}
-	}
+                InputableAttorney::GameLoop::KeyPressed(x, key);
+            }
+        }
+    }
 
-	// key release events
-	else 
+    // key release events
+    else 
     {
-		// execute if key was down on the last frame
-		if (keyDown == true) 
+        // execute if key was down on the last frame
+        if (keyDown == true) 
         {
-			keyDown = false;
-			for (auto const& x : keyMap[Inputable::EVENT_TYPE::KEY_RELEASE]) 
+            keyDown = false;
+            for (auto const& x : keyMap[Inputable::EVENT_TYPE::KEY_RELEASE]) 
             {
-				InputableAttorney::GameLoop::KeyReleased(x, key);
-			}
-		}
-	}
+                InputableAttorney::GameLoop::KeyReleased(x, key);
+            }
+        }
+    }
 }
-</code>
+    </code>
 </pre>
 
 <p>Click <a href="index.html">here</a> to go back to the main page.</p>
