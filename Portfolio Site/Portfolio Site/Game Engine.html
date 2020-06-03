@@ -67,35 +67,35 @@ bool MathTools​::Intersect(const CollisionVolumeBSphere & A, const CollisionVo
 
 <pre>
     <code>
-void SingleKeyEventManager::ProcessKeyEvent() {
-    // key press events
-    if (Keyboard::GetKeyState(key)) 
-    {
-        // execute if key was not down on the last frame
-        if (keyDown == false) 
-        {
-            keyDown = true;
-            for (auto const& x : keyMap[Inputable::EVENT_TYPE::KEY_PRESS]) 
+        void SingleKeyEventManager::ProcessKeyEvent() {
+            // key press events
+            if (Keyboard::GetKeyState(key)) 
             {
-                InputableAttorney::GameLoop::KeyPressed(x, key);
+                // execute if key was not down on the last frame
+                if (keyDown == false) 
+                {
+                    keyDown = true;
+                    for (auto const& x : keyMap[Inputable::EVENT_TYPE::KEY_PRESS]) 
+                    {
+                        InputableAttorney::GameLoop::KeyPressed(x, key);
+                    }
+                }
             }
-        }
-    }
 
-    // key release events
-    else 
-    {
-        // execute if key was down on the last frame
-        if (keyDown == true) 
-        {
-            keyDown = false;
-            for (auto const& x : keyMap[Inputable::EVENT_TYPE::KEY_RELEASE]) 
+            // key release events
+            else 
             {
-                InputableAttorney::GameLoop::KeyReleased(x, key);
+                // execute if key was down on the last frame
+                if (keyDown == true) 
+                {
+                    keyDown = false;
+                    for (auto const& x : keyMap[Inputable::EVENT_TYPE::KEY_RELEASE]) 
+                    {
+                        InputableAttorney::GameLoop::KeyReleased(x, key);
+                    }
+                }
             }
         }
-    }
-}
     </code>
 </pre>
 
