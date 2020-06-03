@@ -1,4 +1,4 @@
 <head>
 <!-- Redirect to actual index file in subfolder. -->
-<meta http-equiv="refresh" content="0; url=https://repo.github.io/Portfolio Site/Portfolio Site/index.html">
+<meta http-equiv="refresh" content="0; url=https://astubitsch.github.io/Portfolio Site/Portfolio Site/index.html">
 </head>
