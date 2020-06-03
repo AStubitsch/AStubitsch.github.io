@@ -41,18 +41,18 @@ layout: default
     </p>
 
 <pre>
-<code>
-bool MathTools​::Intersect(const CollisionVolumeBSphere & A, const CollisionVolumeBSphere & B) 
-{
-	// if the distance between the two spheres' centers is less than the sum of ther radii, they intersect
-	return (
-		sqrt(pow(B.GetCenter().X() - A.GetCenter().X(), 2) + 
-		pow(B.GetCenter().Y() - A.GetCenter().Y(), 2) + 
-		pow(B.GetCenter().Z() - A.GetCenter().Z(), 2)) 
-		< A.GetRadius() + B.GetRadius()
-	);
-}
-</code>
+    <code>
+        bool MathTools​::Intersect(const CollisionVolumeBSphere & A, const CollisionVolumeBSphere & B) 
+        {
+            // if the distance between the two spheres' centers is less than the sum of ther radii, they intersect
+            return (
+                sqrt(pow(B.GetCenter().X() - A.GetCenter().X(), 2) +
+                pow(B.GetCenter().Y() - A.GetCenter().Y(), 2) +
+                pow(B.GetCenter().Z() - A.GetCenter().Z(), 2))
+                < A.GetRadius() + B.GetRadius()
+            );
+        }
+    </code>
 </pre>
     <br>
 
