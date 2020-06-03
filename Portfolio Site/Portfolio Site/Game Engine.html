@@ -4,35 +4,41 @@ layout: default
 
 <head>
 <!-- link to main stylesheet -->
-<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 </head>
 
 <body>
 
-<h1>Game Engine</h1>
+    <h1>Game Engine</h1>
 
-<img src="images/game engine scene.jpg" width="100%">
+    <img src="../images/game engine scene.jpg" width="100%">
 
-<p>For almost six months, I was tasked with creating a functioning 3D game engine. Creating this game engine
-was an incredibly difficult dask, but was a very fulfilling experience. It gave me very low-level 
-access to systems code, providing much more direct control over how a game runs behind the scenes, aspects
-that most people don't even think about. Over six months, I had to implement complicated systems such as
-alarm registration for timed events, keyboard input registration, and even tasks as simple as rendering
-game objects on-screen took time to perform accurately.</p>
+    <p>
+        For almost six months, I was tasked with creating a functioning 3D game engine. Creating this game engine
+        was an incredibly difficult dask, but was a very fulfilling experience. It gave me very low-level
+        access to systems code, providing much more direct control over how a game runs behind the scenes, aspects
+        that most people don't even think about. Over six months, I had to implement complicated systems such as
+        alarm registration for timed events, keyboard input registration, and even tasks as simple as rendering
+        game objects on-screen took time to perform accurately.
+    </p>
 
-<p>Below are a couple snippets of some of the work I did in putting my engine together.</p>
+    <p>Below are a couple snippets of some of the work I did in putting my engine together.</p>
 
-<h2>Collision Detection</h2>
+    <h2>Collision Detection</h2>
 
-<p>Out of all the systems for my engine, designing collision was probably the most work, taking several
-weeks to fully develop. Collision is a crucial part of developing games, as many events take place
-as a result of it. When a bullet hits another player, for instance, it is collision detection that registers
-the hit, and as a result, performs an action on what to do next in-game.</p>
+    <p>
+        Out of all the systems for my engine, designing collision was probably the most work, taking several
+        weeks to fully develop. Collision is a crucial part of developing games, as many events take place
+        as a result of it. When a bullet hits another player, for instance, it is collision detection that registers
+        the hit, and as a result, performs an action on what to do next in-game.
+    </p>
 
-<p>The following code demonstrates one of the many collision methods utilized; in this case, collision
-between two objects using sphere colliders. To measure the calculation correctly, you measure the distance
-between the two spheres' centers, and compare it to the sum of their radii. If their distance is less, they are 
-colliding.</p>
+    <p>
+        The following code demonstrates one of the many collision methods utilized; in this case, collision
+        between two objects using sphere colliders. To measure the calculation correctly, you measure the distance
+        between the two spheres' centers, and compare it to the sum of their radii. If their distance is less, they are
+        colliding.
+    </p>
 
 <pre>
 <code>
@@ -48,18 +54,57 @@ bool MathTools​::Intersect(const CollisionVolumeBSphere & A, const CollisionVo
 }
 </code>
 </pre>
-<br>
+    <br>
 
-<!-- For some reason, autoplaying videos requires that they are muted, otherwise it won't work. -->
-<video autoplay muted loop width="100%">
-<source src="videos/Game Engine Trim.mp4" type="video/mp4">
-</video>
+    <!-- For some reason, autoplaying videos requires that they are muted, otherwise it won't work. -->
+    <video autoplay muted loop width="100%">
+        <source src="../videos/Game Engine Trim.mp4" type="video/mp4">
+    </video>
+
+    <h2>Keyboard Input</h2>
+
+    <p></p>
+
+<pre>
+<code>
+void SingleKeyEventManager::ProcessKeyEvent() 
+{
+	// key press events
+	if (Keyboard::GetKeyState(key)) 
+    {
+		// execute if key was not down on the last frame
+		if (keyDown == false) 
+        {
+			keyDown = true;
+			for (auto const& x : keyMap[Inputable::EVENT_TYPE::KEY_PRESS]) 
+            {
+				InputableAttorney::GameLoop::KeyPressed(x, key);
+			}
+		}
+	}
+
+	// key release events
+	else 
+    {
+		// execute if key was down on the last frame
+		if (keyDown == true) 
+        {
+			keyDown = false;
+			for (auto const& x : keyMap[Inputable::EVENT_TYPE::KEY_RELEASE]) 
+            {
+				InputableAttorney::GameLoop::KeyReleased(x, key);
+			}
+		}
+	}
+}
+</code>
+</pre>
 
 <p>Click <a href="index.html">here</a> to go back to the main page.</p>
 
 <h2>Other Links</h2>
 <a href="https://www.linkedin.com/in/adam-stubitsch-97011691/" target="_blank">Linkedin</a><br>
-<a href="pdfs/Adam Stubitsch Resume.pdf" target="_blank">Resume</a><br>
+<a href="../pdfs/Adam Stubitsch Resume.pdf" target="_blank">Resume</a><br>
 <br>
 
 </body>
