@@ -48,7 +48,7 @@ static GameController& Instance()
 They reduce the complexity of coding by defining an object's actions into distinct states, clearly defining
 what actions will be performed, and under what conditions the object will switch to a different state. 
 Below is an FSM for the centipede object, with 10 states: four for moving across the screen, four for 
-turning, and two for turning while poisoned.
+turning, and two for turning while poisoned.</p>
 
 <pre>
 <code>
@@ -72,7 +72,7 @@ public:
 animation by turning down and to the right. Every frame, we check to see if this movement is complete. If it is,
 we call the GetNextState function to determine the centipede's next state. After a centipede completes a turn,
 there are four different states it could go into. The state machine clearly breaks down the conditions
-required for each state to begin.
+required for each state to begin.</p>
 
 <pre>
 <code>
