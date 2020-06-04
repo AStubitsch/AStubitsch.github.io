@@ -3,6 +3,23 @@
     width: 70%;
 }*/
 
+body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 100vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.initial-content,
+.search-content {
+    flex: 1 0 auto;
+}
+
+
 code {
     margin: 0px 0px;
     padding: 0px 0px;
