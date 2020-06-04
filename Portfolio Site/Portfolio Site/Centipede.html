@@ -31,20 +31,19 @@ layout: default
         classes such as an enemy manager or game manager are perfect with a singleton structure.
     </p>
 <pre>
-<code>
+    <code>
 // singleton
 static GameController* ptrInstance;
 
 // Access reference (all public methods will be static)
-static GameController& Instance() 
-{
-	if (!ptrInstance) 
-	{
-		ptrInstance = new GameController;
-	}
-	return *ptrInstance;
+static GameController& Instance() {
+    if (!ptrInstance) 
+    {
+        ptrInstance = new GameController;
+    }
+    return *ptrInstance;
 };
-</code>
+    </code>
 </pre>
 
     <h2>Finite State Machines</h2>
@@ -58,19 +57,19 @@ static GameController& Instance()
 
 <pre>
     <code>
-        class MoveFSM {
-            public:
-                static const MoveRightAndDownwards StateMoveRightAndDownwards;
-                static const MoveLeftAndDownwards StateMoveLeftAndDownwards;
-                static const MoveRightAndUpwards StateMoveRightAndUpwards;
-                static const MoveLeftAndUpwards StateMoveLeftAndUpwards;
-                static const TurnDownSwitchToLeft StateTurnDownSwitchToLeft;
-                static const TurnDownSwitchToRight StateTurnDownSwitchToRight;
-                static const TurnUpSwitchToLeft StateTurnUpSwitchToLeft;
-                static const TurnUpSwitchToRight StateTurnUpSwitchToRight;
-                static const PoisonedTurnDownSwitchToLeft StatePoisonedTurnDownSwitchToLeft;
-                static const PoisonedTurnDownSwitchToRight StatePoisonedTurnDownSwitchToRight;
-        };
+class MoveFSM {
+    public:
+        static const MoveRightAndDownwards StateMoveRightAndDownwards;
+        static const MoveLeftAndDownwards StateMoveLeftAndDownwards;
+        static const MoveRightAndUpwards StateMoveRightAndUpwards;
+        static const MoveLeftAndUpwards StateMoveLeftAndUpwards;
+        static const TurnDownSwitchToLeft StateTurnDownSwitchToLeft;
+        static const TurnDownSwitchToRight StateTurnDownSwitchToRight;
+        static const TurnUpSwitchToLeft StateTurnUpSwitchToLeft;
+        static const TurnUpSwitchToRight StateTurnUpSwitchToRight;
+        static const PoisonedTurnDownSwitchToLeft StatePoisonedTurnDownSwitchToLeft;
+        static const PoisonedTurnDownSwitchToRight StatePoisonedTurnDownSwitchToRight;
+};
     </code>
 </pre>
 
@@ -84,39 +83,39 @@ static GameController& Instance()
 
 <pre>
     <code>
-        void TurnDownSwitchToRight::Update(CentipedeHead * chead) const 
-        {
-            chead->TurnDownSwitchToRight();
-        }
+void TurnDownSwitchToRight::Update(CentipedeHead * chead) const 
+{
+    chead->TurnDownSwitchToRight();
+}
 
-        bool TurnDownSwitchToRight::MovementIsComplete(CentipedeHead * chead) const 
-        {
-            return chead->TurnisComplete();
-        }
+bool TurnDownSwitchToRight::MovementIsComplete(CentipedeHead * chead) const 
+{
+    return chead->TurnisComplete();
+}
 
-        const MoveState * TurnDownSwitchToRight::GetNextState(CentipedeHead * chead) const 
-        {
-            chead->FinishTurn();
+const MoveState * TurnDownSwitchToRight::GetNextState(CentipedeHead * chead) const 
+{
+    chead->FinishTurn();
             
-            // if the centipede is touching a poisoned mushroom, turn downwards
-            if (chead->IsTouchingPoisonedMushroomOnRight()) return &MoveFSM::StatePoisonedTurnDownSwitchToLeft;
+    // if the centipede is touching a poisoned mushroom, turn downwards
+    if (chead->IsTouchingPoisonedMushroomOnRight()) return &MoveFSM::StatePoisonedTurnDownSwitchToLeft;
             
-            // if the centipede will collide with an object, turn away from it
-            if (chead->WillCollideOnRight()) 
-            {
-                // turn up if the centipede is at the bottom of the screen
-                if (chead->WillPassBelowPlayableArea()) return &MoveFSM::StateTurnUpSwitchToLeft;
-                // otherwise, turn down
-                else return &MoveFSM::StateTurnDownSwitchToLeft;
-            }
+    // if the centipede will collide with an object, turn away from it
+    if (chead->WillCollideOnRight()) 
+    {
+        // turn up if the centipede is at the bottom of the screen
+        if (chead->WillPassBelowPlayableArea()) return &MoveFSM::StateTurnUpSwitchToLeft;
+        // otherwise, turn down
+        else return &MoveFSM::StateTurnDownSwitchToLeft;
+    }
             
-            // otherwise, move forward
-            else 
-            {
-                chead->PrepareForForwardMovement();
-                return &MoveFSM::StateMoveRightAndDownwards;
-            }
-        }
+    // otherwise, move forward
+    else 
+    {
+        chead->PrepareForForwardMovement();
+        return &MoveFSM::StateMoveRightAndDownwards;
+    }
+}
     </code>
 </pre>
 
