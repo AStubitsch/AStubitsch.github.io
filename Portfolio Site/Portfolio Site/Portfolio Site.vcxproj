@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="..\css\style.css" />
     <None Include="Centipede.html" />
     <None Include="Game Engine.html" />
     <None Include="index.html" />

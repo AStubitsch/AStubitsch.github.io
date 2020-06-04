@@ -13,16 +13,25 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\HTML">
+      <UniqueIdentifier>{5ae84d14-1b8d-47d1-b246-1970d914c302}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CSS">
+      <UniqueIdentifier>{476dbc2f-2552-4bb9-a1b7-22439f97b1e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Centipede.html">
-      <Filter>Source Files</Filter>
-    </None>
     <None Include="Game Engine.html">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\HTML</Filter>
     </None>
     <None Include="index.html">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\HTML</Filter>
+    </None>
+    <None Include="Centipede.html">
+      <Filter>Source Files\HTML</Filter>
+    </None>
+    <None Include="..\css\style.css">
+      <Filter>Source Files\CSS</Filter>
     </None>
   </ItemGroup>
 </Project>
