@@ -1,9 +1,24 @@
-body {
+/*body {
     margin: 60px auto;
     width: 70%;
-}
+}*/
 
 code {
     margin: 0px 0px;
     padding: 0px 0px;
 }
+
+.archive {
+    margin-top: 1em;
+    margin-bottom: 2em;
+
+    @include breakpoint($large) {
+        float: right;
+        width: calc(100% - #{$right-sidebar-width-narrow});
+        padding-right: $right-sidebar-width-narrow;
+    }
+
+    @include breakpoint($x-large) {
+        width: calc(100% - #{$right-sidebar-width});
+        padding-right: $right-sidebar-width;
+    }
