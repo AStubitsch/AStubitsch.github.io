@@ -63,7 +63,15 @@ bool MathTools​::Intersect(const CollisionVolumeBSphere & A, const CollisionVo
 
     <h2>Keyboard Input</h2>
 
-    <p></p>
+    <p>Another crucial aspect of developing a game engine is controller input. While moving your characters around on 
+    screen might seem like a simple process, there is a lot of under-the-hood work that registers the player's inputs
+    into in-game events. </p>
+
+    <p>For my game engine, I developed two keyboard events for press and release of keys. Let's say you control a tank
+    in your game, and you want it to move forward by pressing the W key. When the game starts, it creates a key press
+    event for the W key. While the game is running, it has to check every frame if W is pressed. If it is, the event
+    holds a reference to the tank, which calls a function that the user inputs what they want to happen (in this case, 
+    move the tank forward).</p>
 
 <pre>
     <code>
